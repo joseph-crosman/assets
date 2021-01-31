@@ -17,7 +17,7 @@
 </header>
 <center><h1><b>Oops!</b></h1></center>
 <center><h3>The page that you are trying to look for could not be found.</h3></center><br>
-<center><img src="pages/img/404.png" height=42.5% width=42.5% alt="404 image designed by Imageny"/></center><br>
+<center><img src="https://joseph-crosman.github.io/assets/pages/img/404.png" height=42.5% width=42.5% alt="404 image designed by Imageny"/></center><br>
 <center><a href="pages/html/list.html">Go back to the video list</a>
 <footer>
 	<a id="discordlink" href="https://discord.gg/2CCt2bE">Discord Server</a>
@@ -40,14 +40,14 @@
 
 <script>
 	const closeReq = new XMLHttpRequest();
-	closeReq.open('GET', '/events/close');
+	closeReq.open('GET', 'events/close');
 	closeReq.send();
 
 	var json;
 	var tbody = document.getElementsByTagName('tbody')[0];
 	var loadMore = document.getElementById('load_more');
 	const listReq = new XMLHttpRequest();
-	listReq.open('GET', '/movieList');
+	listReq.open('GET', 'movieList');
 	listReq.send();
 
 	var C = 0;
@@ -62,7 +62,7 @@
 			const tbl = json[c];
 			const date = tbl.date.substr(0, 10) + ' ' + tbl.date.substr(11);
 			tbody.insertAdjacentHTML('beforeend',
-				'<tr><td><img src="/movie_thumbs/' + tbl.id + '"></td><td><div>' + tbl.title + '</div><div>' + tbl.durationString + '</div></div></td><td><span>' + date.match(/./g).join('</span><span>') + '</span></td><td><a href="javascript:;" onclick="popup(\'' + tbl.id + '\')"></a><a href="/go_full?movieId=' + tbl.id + '"></a><a href="/movies/' + tbl.id + '.xml" download="' + tbl.title + '"></a></td></tr>');
+				'<tr><td><img src="movie_thumbs/' + tbl.id + '"></td><td><div>' + tbl.title + '</div><div>' + tbl.durationString + '</div></div></td><td><span>' + date.match(/./g).join('</span><span>') + '</span></td><td><a href="javascript:;" onclick="popup(\'' + tbl.id + '\')"></a><a href="go_full?movieId=' + tbl.id + '"></a><a href="movies/' + tbl.id + '.xml" download="' + tbl.title + '"></a></td></tr>');
 		}
 	}
 
@@ -74,7 +74,7 @@
 	}
 
 	function popup(id) {
-		window.open('/player?movieId=' + id, 'MsgWindow', 'width=1280,height=720,left=' + (screen.width / 2 - 640) + ',top=' + (screen.height / 2 - 360));
+		window.open('player?movieId=' + id, 'MsgWindow', 'width=1280,height=720,left=' + (screen.width / 2 - 640) + ',top=' + (screen.height / 2 - 360));
 	}
 </script>
 </html>
